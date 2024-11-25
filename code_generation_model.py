@@ -22,13 +22,16 @@ class CodeGenerationModel:
             self.tokenizers[language] = AutoTokenizer.from_pretrained(model_name)
             self.loaded_models[language] = model_class.from_pretrained(model_name)
 
-    def generate_code(self, prompt, language, max_length=200):
-        self.load_model(language)
-        
-        input_ids = self.tokenizers[language].encode(prompt, return_tensors="pt")
-        output = self.loaded_models[language].generate(input_ids, max_length=max_length, num_return_sequences=1, temperature=0.7)
-        generated_code = self.tokenizers[language].decode(output[0], skip_special_tokens=True)
-        return generated_code
+    def generate_code(self, language, prompt, max_length=200):
+        try:
+            self.load_model(language)
+            
+            input_ids = self.tokenizers[language].encode(prompt, return_tensors="pt")
+            output = self.loaded_models[language].generate(input_ids, max_length=max_length, num_return_sequences=1, temperature=0.7)
+            generated_code = self.tokenizers[language].decode(output[0], skip_special_tokens=True)
+            return generated_code
+        except Exception as e:
+            return f"Error generating code: {str(e)}"
 
     def generate_android_component(self, component_type):
         if component_type not in ['activity', 'fragment', 'service', 'broadcast_receiver']:
