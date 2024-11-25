@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, scrolledtext, filedialog
+from tkinter import ttk, scrolledtext, filedialog, messagebox
 from code_generation_model import CodeGenerationModel
 
 class CodeGeneratorGUI:
@@ -7,6 +7,7 @@ class CodeGeneratorGUI:
         self.master = master
         self.master.title("Inovar IADEPG - Code Generator")
         self.model = CodeGenerationModel()
+        self.history = []
 
         self.create_widgets()
 
@@ -41,7 +42,11 @@ class CodeGeneratorGUI:
 
         # Save button
         self.save_button = ttk.Button(self.master, text="Save Code", command=self.save_code)
-        self.save_button.grid(row=5, column=0, columnspan=2, pady=10)
+        self.save_button.grid(row=5, column=0, pady=10)
+
+        # History button
+        self.history_button = ttk.Button(self.master, text="Show History", command=self.show_history)
+        self.history_button.grid(row=5, column=1, pady=10)
 
     def generate_code(self):
         language = self.language_var.get()
@@ -59,6 +64,14 @@ class CodeGeneratorGUI:
 
             self.output_area.delete(1.0, tk.END)
             self.output_area.insert(tk.END, generated_code)
+            
+            # Add to history
+            self.history.append({
+                'language': language,
+                'component': component,
+                'prompt': prompt,
+                'code': generated_code
+            })
         except Exception as e:
             self.output_area.delete(1.0, tk.END)
             self.output_area.insert(tk.END, f"Error: {str(e)}")
@@ -66,7 +79,7 @@ class CodeGeneratorGUI:
     def save_code(self):
         generated_code = self.output_area.get(1.0, tk.END).strip()
         if not generated_code:
-            tk.messagebox.showwarning("Empty Code", "No code to save. Please generate code first.")
+            messagebox.showwarning("Empty Code", "No code to save. Please generate code first.")
             return
 
         file_types = [('Python Files', '*.py'), ('Java Files', '*.java'), ('JavaScript Files', '*.js'),
@@ -76,7 +89,35 @@ class CodeGeneratorGUI:
         if file_path:
             with open(file_path, 'w') as file:
                 file.write(generated_code)
-            tk.messagebox.showinfo("Save Successful", f"Code saved to {file_path}")
+            messagebox.showinfo("Save Successful", f"Code saved to {file_path}")
+
+    def show_history(self):
+        history_window = tk.Toplevel(self.master)
+        history_window.title("Code Generation History")
+
+        for i, item in enumerate(reversed(self.history)):
+            frame = ttk.Frame(history_window, padding="10")
+            frame.pack(fill=tk.X, expand=True)
+
+            ttk.Label(frame, text=f"Language: {item['language']}").pack(anchor="w")
+            if item['component']:
+                ttk.Label(frame, text=f"Component: {item['component']}").pack(anchor="w")
+            if item['prompt']:
+                ttk.Label(frame, text=f"Prompt: {item['prompt']}").pack(anchor="w")
+            
+            code_area = scrolledtext.ScrolledText(frame, wrap=tk.WORD, width=50, height=10)
+            code_area.pack(fill=tk.X, expand=True)
+            code_area.insert(tk.END, item['code'])
+            code_area.config(state=tk.DISABLED)
+
+            ttk.Button(frame, text="Use This Code", command=lambda code=item['code']: self.use_history_code(code)).pack(pady=5)
+
+            if i < len(self.history) - 1:
+                ttk.Separator(history_window, orient='horizontal').pack(fill='x', padx=10, pady=10)
+
+    def use_history_code(self, code):
+        self.output_area.delete(1.0, tk.END)
+        self.output_area.insert(tk.END, code)
 
 if __name__ == "__main__":
     root = tk.Tk()
