@@ -20,6 +20,7 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 - [x] Adição de funcionalidade para salvar o código gerado em um arquivo
 - [x] Implementação de um histórico de códigos gerados na GUI
 - [x] Adição de opções para personalizar os parâmetros de geração (temperatura, max_length)
+- [x] Inclusão de uma visualização prévia do layout XML gerado (para componentes Android)
 
 ## Como usar
 
@@ -40,13 +41,19 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
    - Inserir o prompt para gerar o código
    - Ajustar os parâmetros de geração (temperatura e max_length)
 5. Clique em "Generate Code" para gerar o código
-6. Após gerar o código, você pode salvá-lo em um arquivo usando o botão "Save Code"
+6. Após gerar o código, você pode:
+   - Salvá-lo em um arquivo usando o botão "Save Code"
+   - Visualizar o layout XML (se aplicável) usando o botão "Preview XML"
 7. Use o botão "Show History" para ver e reutilizar códigos gerados anteriormente
 
 #### Parâmetros de Geração
 
 - **Temperatura**: Controla a aleatoriedade do código gerado. Valores mais baixos (ex: 0.2) produzem resultados mais determinísticos, enquanto valores mais altos (ex: 0.8) produzem resultados mais diversos e potencialmente mais criativos.
 - **Max Length**: Define o comprimento máximo do código gerado em tokens. Aumente este valor se precisar de códigos mais longos.
+
+#### Visualização Prévia do XML
+
+Quando um layout XML é gerado, o botão "Preview XML" ficará ativo. Ao clicar nele, uma nova janela será aberta mostrando uma representação em árvore do layout XML, permitindo uma fácil visualização da estrutura do layout.
 
 ### Interface de Linha de Comando (CLI)
 
@@ -90,7 +97,6 @@ O modelo agora suporta:
 
 ## Próximos Passos
 
-- Incluir uma visualização prévia do layout XML gerado (para componentes Android)
 - Adicionar uma barra de status para mostrar o progresso da geração de código
 - Adicionar suporte para mais padrões de design e arquiteturas Android (MVVM, Clean Architecture, etc.)
 - Implementar testes unitários e de integração
@@ -112,6 +118,7 @@ O Inovar IADEPG está atualmente em um estado funcional com as seguintes caracte
    - Capacidade de salvar o código gerado
    - Histórico de códigos gerados com opção de reutilização
    - Opções para personalizar os parâmetros de geração (temperatura, max_length)
+   - Visualização prévia do layout XML gerado
 5. Documentação atualizada com todas as funcionalidades e instruções de uso.
 
 O projeto está pronto para uso, mas continua em desenvolvimento ativo para melhorias e adição de novas funcionalidades.
