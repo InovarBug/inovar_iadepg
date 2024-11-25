@@ -85,3 +85,15 @@ O modelo agora suporta:
 
 Contribuições são bem-vindas! Por favor, sinta-se à vontade para submeter pull requests ou abrir issues para sugerir melhorias ou reportar bugs.
 
+## Estado Atual do Projeto
+
+O Inovar IADEPG está atualmente em um estado funcional com as seguintes características:
+
+1. Modelo de geração de código que suporta múltiplas linguagens.
+2. Suporte específico para desenvolvimento Android, incluindo geração de componentes e layouts XML.
+3. Interface de linha de comando (CLI) para interação com o modelo.
+4. Interface gráfica do usuário (GUI) para facilitar o uso da ferramenta.
+5. Documentação atualizada com todas as funcionalidades e instruções de uso.
+
+O projeto está pronto para uso, mas continua em desenvolvimento ativo para melhorias e adição de novas funcionalidades.
+
