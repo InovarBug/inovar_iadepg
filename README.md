@@ -19,6 +19,7 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 - [x] Implementação de uma interface gráfica de usuário (GUI)
 - [x] Adição de funcionalidade para salvar o código gerado em um arquivo
 - [x] Implementação de um histórico de códigos gerados na GUI
+- [x] Adição de opções para personalizar os parâmetros de geração (temperatura, max_length)
 
 ## Como usar
 
@@ -33,9 +34,19 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
    ```
    python gui.py
    ```
-4. Use a interface gráfica para selecionar a linguagem, o componente Android (se aplicável) e inserir o prompt para gerar o código.
-5. Após gerar o código, você pode salvá-lo em um arquivo usando o botão "Save Code".
-6. Use o botão "Show History" para ver e reutilizar códigos gerados anteriormente.
+4. Use a interface gráfica para:
+   - Selecionar a linguagem
+   - Escolher o componente Android (se aplicável)
+   - Inserir o prompt para gerar o código
+   - Ajustar os parâmetros de geração (temperatura e max_length)
+5. Clique em "Generate Code" para gerar o código
+6. Após gerar o código, você pode salvá-lo em um arquivo usando o botão "Save Code"
+7. Use o botão "Show History" para ver e reutilizar códigos gerados anteriormente
+
+#### Parâmetros de Geração
+
+- **Temperatura**: Controla a aleatoriedade do código gerado. Valores mais baixos (ex: 0.2) produzem resultados mais determinísticos, enquanto valores mais altos (ex: 0.8) produzem resultados mais diversos e potencialmente mais criativos.
+- **Max Length**: Define o comprimento máximo do código gerado em tokens. Aumente este valor se precisar de códigos mais longos.
 
 ### Interface de Linha de Comando (CLI)
 
@@ -79,7 +90,6 @@ O modelo agora suporta:
 
 ## Próximos Passos
 
-- Adicionar uma opção para personalizar os parâmetros de geração (como temperatura, max_length, etc.)
 - Incluir uma visualização prévia do layout XML gerado (para componentes Android)
 - Adicionar uma barra de status para mostrar o progresso da geração de código
 - Adicionar suporte para mais padrões de design e arquiteturas Android (MVVM, Clean Architecture, etc.)
@@ -101,6 +111,7 @@ O Inovar IADEPG está atualmente em um estado funcional com as seguintes caracte
 4. Interface gráfica do usuário (GUI) para facilitar o uso da ferramenta, incluindo:
    - Capacidade de salvar o código gerado
    - Histórico de códigos gerados com opção de reutilização
+   - Opções para personalizar os parâmetros de geração (temperatura, max_length)
 5. Documentação atualizada com todas as funcionalidades e instruções de uso.
 
 O projeto está pronto para uso, mas continua em desenvolvimento ativo para melhorias e adição de novas funcionalidades.
