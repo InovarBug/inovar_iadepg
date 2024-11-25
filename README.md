@@ -1,10 +1,10 @@
 # Inovar IADEPG
 
-Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas em várias linguagens, com foco especial em desenvolvimento Android.
+Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas em várias linguagens, com foco especial em desenvolvimento Android, incluindo geração de código Kotlin e layouts XML.
 
 ## Estrutura do Projeto
 
-- `code_generation_model.py`: Contém o modelo de geração de código que suporta múltiplas linguagens e componentes Android usando a biblioteca Transformers.
+- `code_generation_model.py`: Contém o modelo de geração de código que suporta múltiplas linguagens, componentes Android e layouts XML usando a biblioteca Transformers.
 - `cli.py`: Interface de linha de comando para interagir com o modelo de geração de código.
 
 ## Progresso
@@ -14,6 +14,7 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 - [x] Implementação de suporte avançado para desenvolvimento Android
 - [x] Criação de interface de linha de comando (CLI)
 - [x] Melhoria na qualidade e relevância do código gerado para Android
+- [x] Adição de suporte para geração de layouts XML para Android
 
 ## Como usar
 
@@ -28,6 +29,7 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
    ```
    python cli.py --language python --prompt "def fibonacci(n):"
    python cli.py --language kotlin --android activity
+   python cli.py --language xml --android-layout activity
    ```
 
 ### Online
@@ -44,15 +46,22 @@ Você pode executar este programa online usando as seguintes plataformas:
 - Java
 - JavaScript
 - Kotlin
+- XML (para layouts Android)
 
 ## Funcionalidades de Desenvolvimento Android
 
-O modelo agora suporta a geração avançada dos seguintes componentes Android com templates detalhados:
+O modelo agora suporta:
 
-- Activity: Inclui importações necessárias, método onCreate, e comentários para inicialização de UI e outros métodos do ciclo de vida.
-- Fragment: Inclui importações, métodos onCreateView e onViewCreated, e comentários para inicialização de UI.
-- Service: Inclui importações, métodos onBind e onStartCommand, e comentários para lógica do serviço.
-- BroadcastReceiver: Inclui importações e método onReceive com comentário para tratamento de broadcast.
+1. Geração avançada dos seguintes componentes Android com templates detalhados:
+   - Activity
+   - Fragment
+   - Service
+   - BroadcastReceiver
+
+2. Geração de layouts XML para Android:
+   - Layout de Activity
+   - Layout de Fragment
+   - Layout de item de lista
 
 ## Exemplos de Uso da CLI
 
@@ -66,13 +75,18 @@ O modelo agora suporta a geração avançada dos seguintes componentes Android c
    python cli.py --language kotlin --android activity
    ```
 
+3. Gerar um layout XML para uma Activity Android:
+   ```
+   python cli.py --language xml --android-layout activity
+   ```
+
 ## Próximos Passos
 
-- Adicionar suporte para mais padrões de design e arquiteturas Android (MVVM, Clean Architecture, etc.)
 - Implementar uma interface gráfica de usuário (GUI)
-- Adicionar suporte para geração de layouts XML para Android
+- Adicionar suporte para mais padrões de design e arquiteturas Android (MVVM, Clean Architecture, etc.)
 - Implementar testes unitários e de integração
 - Explorar a possibilidade de fine-tuning do modelo para melhorar ainda mais a qualidade do código gerado
+- Adicionar suporte para geração de recursos Android (strings, cores, estilos, etc.)
 
 ## Contribuindo
 
