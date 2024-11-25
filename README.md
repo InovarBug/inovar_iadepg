@@ -15,6 +15,8 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 
 ## Como usar
 
+### Localmente
+
 1. Certifique-se de ter Python 3.7+ instalado.
 2. Instale as dependências:
    ```
@@ -24,6 +26,14 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
    ```
    python code_generation_model.py
    ```
+
+### Online
+
+Você pode executar este programa online usando as seguintes plataformas:
+
+1. [Google Colab](https://colab.research.google.com/): Faça o upload do arquivo `code_generation_model.py` e execute-o em um notebook.
+2. [Repl.it](https://replit.com/): Crie um novo projeto Python, copie o conteúdo de `code_generation_model.py` e execute-o.
+3. [Binder](https://mybinder.org/): Crie um ambiente Jupyter a partir deste repositório GitHub.
 
 O script irá gerar códigos de exemplo para uma função Fibonacci em Python, Java e JavaScript.
 
