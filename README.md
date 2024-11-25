@@ -15,5 +15,21 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 
 ## Como usar
 
-(Instruções de uso serão adicionadas conforme o projeto for desenvolvido)
+1. Certifique-se de ter Python 3.7+ instalado.
+2. Instale as dependências:
+   ```
+   pip install transformers torch
+   ```
+3. Execute o script:
+   ```
+   python code_generation_model.py
+   ```
+
+O script irá gerar um código de exemplo para uma função Fibonacci.
+
+## Próximos Passos
+
+- Implementar suporte para múltiplas linguagens de programação
+- Adicionar funcionalidades específicas para desenvolvimento Android
+- Criar uma interface de usuário amigável para interação com o modelo
 
