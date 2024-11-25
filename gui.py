@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, scrolledtext
+from tkinter import ttk, scrolledtext, filedialog
 from code_generation_model import CodeGenerationModel
 
 class CodeGeneratorGUI:
@@ -39,6 +39,10 @@ class CodeGeneratorGUI:
         self.output_area = scrolledtext.ScrolledText(self.master, wrap=tk.WORD, width=60, height=20)
         self.output_area.grid(row=4, column=0, columnspan=2, padx=5, pady=5)
 
+        # Save button
+        self.save_button = ttk.Button(self.master, text="Save Code", command=self.save_code)
+        self.save_button.grid(row=5, column=0, columnspan=2, pady=10)
+
     def generate_code(self):
         language = self.language_var.get()
         component = self.component_var.get()
@@ -58,6 +62,21 @@ class CodeGeneratorGUI:
         except Exception as e:
             self.output_area.delete(1.0, tk.END)
             self.output_area.insert(tk.END, f"Error: {str(e)}")
+
+    def save_code(self):
+        generated_code = self.output_area.get(1.0, tk.END).strip()
+        if not generated_code:
+            tk.messagebox.showwarning("Empty Code", "No code to save. Please generate code first.")
+            return
+
+        file_types = [('Python Files', '*.py'), ('Java Files', '*.java'), ('JavaScript Files', '*.js'),
+                      ('Kotlin Files', '*.kt'), ('XML Files', '*.xml'), ('All Files', '*.*')]
+        file_path = filedialog.asksaveasfilename(filetypes=file_types, defaultextension=".txt")
+        
+        if file_path:
+            with open(file_path, 'w') as file:
+                file.write(generated_code)
+            tk.messagebox.showinfo("Save Successful", f"Code saved to {file_path}")
 
 if __name__ == "__main__":
     root = tk.Tk()
