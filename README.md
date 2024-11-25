@@ -21,6 +21,7 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 - [x] Implementação de um histórico de códigos gerados na GUI
 - [x] Adição de opções para personalizar os parâmetros de geração (temperatura, max_length)
 - [x] Inclusão de uma visualização prévia do layout XML gerado (para componentes Android)
+- [x] Adição de uma barra de progresso e rótulo de status para mostrar o progresso da geração de código
 
 ## Como usar
 
@@ -41,6 +42,8 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
    - Inserir o prompt para gerar o código
    - Ajustar os parâmetros de geração (temperatura e max_length)
 5. Clique em "Generate Code" para gerar o código
+   - Uma barra de progresso mostrará o andamento da geração
+   - Um rótulo de status informará sobre o estado atual do processo
 6. Após gerar o código, você pode:
    - Salvá-lo em um arquivo usando o botão "Save Code"
    - Visualizar o layout XML (se aplicável) usando o botão "Preview XML"
@@ -54,6 +57,10 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 #### Visualização Prévia do XML
 
 Quando um layout XML é gerado, o botão "Preview XML" ficará ativo. Ao clicar nele, uma nova janela será aberta mostrando uma representação em árvore do layout XML, permitindo uma fácil visualização da estrutura do layout.
+
+#### Barra de Progresso e Status
+
+Durante a geração de código, uma barra de progresso indicará o andamento do processo. Um rótulo de status abaixo da barra de progresso fornecerá informações adicionais sobre o estado atual da geração de código.
 
 ### Interface de Linha de Comando (CLI)
 
@@ -97,7 +104,6 @@ O modelo agora suporta:
 
 ## Próximos Passos
 
-- Adicionar uma barra de status para mostrar o progresso da geração de código
 - Adicionar suporte para mais padrões de design e arquiteturas Android (MVVM, Clean Architecture, etc.)
 - Implementar testes unitários e de integração
 - Explorar a possibilidade de fine-tuning do modelo para melhorar ainda mais a qualidade do código gerado
@@ -119,6 +125,7 @@ O Inovar IADEPG está atualmente em um estado funcional com as seguintes caracte
    - Histórico de códigos gerados com opção de reutilização
    - Opções para personalizar os parâmetros de geração (temperatura, max_length)
    - Visualização prévia do layout XML gerado
+   - Barra de progresso e rótulo de status para acompanhamento da geração de código
 5. Documentação atualizada com todas as funcionalidades e instruções de uso.
 
 O projeto está pronto para uso, mas continua em desenvolvimento ativo para melhorias e adição de novas funcionalidades.
