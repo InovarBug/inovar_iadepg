@@ -1,0 +1,5 @@
+[user]
+	name = AI Assistant
+	email = assistant@example.com
+[safe]
+	directory = /home/user
