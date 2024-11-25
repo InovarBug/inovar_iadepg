@@ -6,6 +6,7 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 
 - `code_generation_model.py`: Contém o modelo de geração de código que suporta múltiplas linguagens, componentes Android e layouts XML usando a biblioteca Transformers.
 - `cli.py`: Interface de linha de comando para interagir com o modelo de geração de código.
+- `gui.py`: Interface gráfica do usuário para interagir com o modelo de geração de código.
 
 ## Progresso
 
@@ -15,17 +16,26 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 - [x] Criação de interface de linha de comando (CLI)
 - [x] Melhoria na qualidade e relevância do código gerado para Android
 - [x] Adição de suporte para geração de layouts XML para Android
+- [x] Implementação de uma interface gráfica de usuário (GUI)
 
 ## Como usar
 
-### Localmente
+### Interface Gráfica (GUI)
 
 1. Certifique-se de ter Python 3.7+ instalado.
 2. Instale as dependências:
    ```
    pip install transformers torch
    ```
-3. Use a CLI para gerar código:
+3. Execute o script GUI:
+   ```
+   python gui.py
+   ```
+4. Use a interface gráfica para selecionar a linguagem, o componente Android (se aplicável) e inserir o prompt para gerar o código.
+
+### Interface de Linha de Comando (CLI)
+
+1. Use a CLI para gerar código:
    ```
    python cli.py --language python --prompt "def fibonacci(n):"
    python cli.py --language kotlin --android activity
@@ -36,7 +46,7 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 
 Você pode executar este programa online usando as seguintes plataformas:
 
-1. [Google Colab](https://colab.research.google.com/): Faça o upload dos arquivos `code_generation_model.py` e `cli.py`, e execute-os em um notebook.
+1. [Google Colab](https://colab.research.google.com/): Faça o upload dos arquivos `code_generation_model.py`, `cli.py`, e `gui.py`, e execute-os em um notebook.
 2. [Repl.it](https://replit.com/): Crie um novo projeto Python, copie o conteúdo dos arquivos e execute-os.
 3. [Binder](https://mybinder.org/): Crie um ambiente Jupyter a partir deste repositório GitHub.
 
@@ -63,26 +73,9 @@ O modelo agora suporta:
    - Layout de Fragment
    - Layout de item de lista
 
-## Exemplos de Uso da CLI
-
-1. Gerar código Python:
-   ```
-   python cli.py --language python --prompt "def fibonacci(n):"
-   ```
-
-2. Gerar uma Activity Android em Kotlin:
-   ```
-   python cli.py --language kotlin --android activity
-   ```
-
-3. Gerar um layout XML para uma Activity Android:
-   ```
-   python cli.py --language xml --android-layout activity
-   ```
-
 ## Próximos Passos
 
-- Implementar uma interface gráfica de usuário (GUI)
+- Melhorar a interface gráfica do usuário (GUI) com mais opções e personalização
 - Adicionar suporte para mais padrões de design e arquiteturas Android (MVVM, Clean Architecture, etc.)
 - Implementar testes unitários e de integração
 - Explorar a possibilidade de fine-tuning do modelo para melhorar ainda mais a qualidade do código gerado
