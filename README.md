@@ -1,6 +1,6 @@
 # Inovar IADEPG
 
-Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas em várias linguagens, incluindo desenvolvimento Android.
+Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas em várias linguagens, com foco especial em desenvolvimento Android.
 
 ## Estrutura do Projeto
 
@@ -11,8 +11,9 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 
 - [x] Criação do modelo básico de geração de código
 - [x] Expansão para múltiplas linguagens (Python, Java, JavaScript, Kotlin)
-- [x] Implementação de suporte básico para desenvolvimento Android
+- [x] Implementação de suporte avançado para desenvolvimento Android
 - [x] Criação de interface de linha de comando (CLI)
+- [x] Melhoria na qualidade e relevância do código gerado para Android
 
 ## Como usar
 
@@ -46,12 +47,12 @@ Você pode executar este programa online usando as seguintes plataformas:
 
 ## Funcionalidades de Desenvolvimento Android
 
-O modelo suporta a geração básica dos seguintes componentes Android:
+O modelo agora suporta a geração avançada dos seguintes componentes Android com templates detalhados:
 
-- Activity
-- Fragment
-- Service
-- BroadcastReceiver
+- Activity: Inclui importações necessárias, método onCreate, e comentários para inicialização de UI e outros métodos do ciclo de vida.
+- Fragment: Inclui importações, métodos onCreateView e onViewCreated, e comentários para inicialização de UI.
+- Service: Inclui importações, métodos onBind e onStartCommand, e comentários para lógica do serviço.
+- BroadcastReceiver: Inclui importações e método onReceive com comentário para tratamento de broadcast.
 
 ## Exemplos de Uso da CLI
 
@@ -67,10 +68,11 @@ O modelo suporta a geração básica dos seguintes componentes Android:
 
 ## Próximos Passos
 
-- Melhorar a qualidade e relevância do código gerado
-- Adicionar suporte para mais componentes e padrões de desenvolvimento Android
+- Adicionar suporte para mais padrões de design e arquiteturas Android (MVVM, Clean Architecture, etc.)
 - Implementar uma interface gráfica de usuário (GUI)
+- Adicionar suporte para geração de layouts XML para Android
 - Implementar testes unitários e de integração
+- Explorar a possibilidade de fine-tuning do modelo para melhorar ainda mais a qualidade do código gerado
 
 ## Contribuindo
 
