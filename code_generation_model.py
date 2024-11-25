@@ -8,6 +8,7 @@ class CodeGenerationModel:
             'java': ('microsoft/codebert-base', AutoModelForCausalLM),
             'javascript': ('microsoft/codebert-base-mlm', AutoModelForCausalLM),
             'kotlin': ('microsoft/codebert-base', AutoModelForCausalLM),
+            'xml': ('microsoft/codebert-base', AutoModelForCausalLM),  # Using CodeBERT for XML as well
         }
         self.tokenizers = {}
         self.loaded_models = {}
@@ -103,30 +104,66 @@ class MyReceiver : BroadcastReceiver() {
 
         return self.generate_code(prompts[component_type], 'kotlin')
 
+    def generate_android_layout(self, layout_type):
+        if layout_type not in ['activity', 'fragment', 'list_item']:
+            raise ValueError(f"Unsupported Android layout type: {layout_type}")
+
+        prompts = {
+            'activity': """
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- TODO: Add your UI components here -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+""",
+            'fragment': """
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragment">
+
+    <!-- TODO: Add your UI components here -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+""",
+            'list_item': """
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <!-- TODO: Add your list item components here -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+"""
+        }
+
+        return self.generate_code(prompts[layout_type], 'xml')
+
 if __name__ == "__main__":
     model = CodeGenerationModel()
     
-    # Test Python
-    python_prompt = "def fibonacci(n):"
-    python_code = model.generate_code(python_prompt, 'python')
-    print(f"Generated Python code:\n{python_code}\n")
-    
-    # Test Java
-    java_prompt = "public static int fibonacci(int n) {"
-    java_code = model.generate_code(java_prompt, 'java')
-    print(f"Generated Java code:\n{java_code}\n")
-    
-    # Test JavaScript
-    js_prompt = "function fibonacci(n) {"
-    js_code = model.generate_code(js_prompt, 'javascript')
-    print(f"Generated JavaScript code:\n{js_code}\n")
+    # Test Android layout generation
+    activity_layout = model.generate_android_layout('activity')
+    print(f"Generated Android Activity Layout:\n{activity_layout}\n")
 
-    # Test Kotlin and Android components
-    kotlin_prompt = "fun fibonacci(n: Int): Int {"
-    kotlin_code = model.generate_code(kotlin_prompt, 'kotlin')
-    print(f"Generated Kotlin code:\n{kotlin_code}\n")
+    fragment_layout = model.generate_android_layout('fragment')
+    print(f"Generated Android Fragment Layout:\n{fragment_layout}\n")
 
-    # Generate Android Activity
-    android_activity = model.generate_android_component('activity')
-    print(f"Generated Android Activity:\n{android_activity}\n")
+    list_item_layout = model.generate_android_layout('list_item')
+    print(f"Generated Android List Item Layout:\n{list_item_layout}\n")
 
