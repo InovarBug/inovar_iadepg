@@ -4,12 +4,12 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
 
 ## Estrutura do Projeto
 
-- `code_generation_model.py`: Contém o modelo básico de geração de código usando a biblioteca Transformers.
+- `code_generation_model.py`: Contém o modelo de geração de código que suporta múltiplas linguagens usando a biblioteca Transformers.
 
 ## Progresso
 
 - [x] Criação do modelo básico de geração de código
-- [ ] Expansão para múltiplas linguagens
+- [x] Expansão para múltiplas linguagens (Python, Java, JavaScript)
 - [ ] Implementação de suporte para desenvolvimento Android
 - [ ] Criação de interface de usuário
 
@@ -25,11 +25,22 @@ Este projeto tem como objetivo criar uma IA capaz de gerar códigos e programas 
    python code_generation_model.py
    ```
 
-O script irá gerar um código de exemplo para uma função Fibonacci.
+O script irá gerar códigos de exemplo para uma função Fibonacci em Python, Java e JavaScript.
+
+## Linguagens Suportadas
+
+- Python
+- Java
+- JavaScript
 
 ## Próximos Passos
 
-- Implementar suporte para múltiplas linguagens de programação
-- Adicionar funcionalidades específicas para desenvolvimento Android
+- Adicionar suporte para mais linguagens de programação
+- Implementar funcionalidades específicas para desenvolvimento Android
 - Criar uma interface de usuário amigável para interação com o modelo
+- Melhorar a qualidade e relevância do código gerado
+
+## Contribuindo
+
+Contribuições são bem-vindas! Por favor, sinta-se à vontade para submeter pull requests ou abrir issues para sugerir melhorias ou reportar bugs.
 
